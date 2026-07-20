@@ -32,6 +32,10 @@
             font-family: 'Open Sans', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--light);
             color: var(--text-color);
@@ -39,6 +43,48 @@
 
         h1, h2, h3, h4, h5 {
             font-family: 'Playfair Display', serif;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin-top: 8px;
+        }
+
+        .section-title-center {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title-center::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 8px auto 0;
+        }
+
+        .section-subtitle {
+            color: #6c7a89;
+            font-weight: 300;
         }
 
         /* ===== TOP BAR ===== */
@@ -180,45 +226,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* ===== SEÇÕES ===== */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary);
-            margin-top: 8px;
-        }
-
-        .section-title-center {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .section-title-center::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--secondary);
-            margin: 8px auto 0;
-        }
-
-        .section-subtitle {
-            color: #6c7a89;
-            font-weight: 300;
-        }
-
         /* ===== CARDS ===== */
         .info-card {
             background: #fff;
@@ -285,33 +292,16 @@
             transform: scale(1.05);
         }
 
-        .doctor-card {
+        /* ===== SOBRE PAGE ===== */
+        .about-page-section {
             background: #fff;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #e8edf2;
-            transition: 0.3s;
-            height: 100%;
         }
 
-        .doctor-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .doctor-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+        .about-image-placeholder {
             background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin: 0 auto 15px;
+            border-radius: 20px;
+            padding: 60px 20px;
+            text-align: center;
         }
 
         .stat-number {
@@ -326,37 +316,125 @@
             font-size: 0.9rem;
         }
 
-        /* ===== CNAE LIST ===== */
-        .cnae-list {
+        /* ===== FALE CONOSCO ===== */
+        .contact-form-section {
+            background: var(--light);
+        }
+
+        .contact-form-section .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid #dce4ec;
+        }
+
+        .contact-form-section .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 92, 122, 0.1);
+        }
+
+        .contact-form-section .btn-submit {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .contact-form-section .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 92, 122, 0.3);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .contact-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info-item .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* ===== POLÍTICA DE PRIVACIDADE ===== */
+        .privacy-section {
+            background: #fff;
+        }
+
+        .privacy-list {
             list-style: none;
             padding-left: 0;
         }
 
-        .cnae-list li {
-            padding: 12px 15px;
+        .privacy-list li {
+            padding: 12px 0;
             border-bottom: 1px solid #eef2f6;
             display: flex;
-            align-items: center;
             gap: 12px;
+            align-items: flex-start;
         }
 
-        .cnae-list li:last-child {
+        .privacy-list li:last-child {
             border-bottom: none;
         }
 
-        .cnae-list .cnae-code {
-            background: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--primary);
-            white-space: nowrap;
+        .privacy-list .privacy-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
         }
 
-        .cnae-list .cnae-main {
-            background: var(--gold);
+        /* ===== TROCAS E DEVOLUÇÕES ===== */
+        .returns-section {
+            background: var(--light);
+        }
+
+        .returns-step {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e8edf2;
+            height: 100%;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .returns-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .returns-step .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
             color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
         }
 
         /* ===== NEWSLETTER ===== */
@@ -437,6 +515,33 @@
             font-size: 0.85rem;
         }
 
+        /* ===== BOTÃO VOLTAR AO TOPO ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
         /* ===== RESPONSIVO ===== */
         @media (max-width: 768px) {
             .hero-title {
@@ -451,6 +556,9 @@
             }
             .top-bar {
                 font-size: 0.75rem;
+            }
+            .section-padding {
+                padding: 50px 0;
             }
         }
     </style>
@@ -486,10 +594,10 @@
                 <div class="col-md-6">
                     <nav class="d-flex justify-content-center gap-2 flex-wrap">
                         <a href="#home" class="nav-link-custom">Início</a>
-                        <a href="#sobre" class="nav-link-custom">A Clínica</a>
-                        <a href="#especialidades" class="nav-link-custom">Especialidades</a>
-                        <a href="#equipe" class="nav-link-custom">Equipe</a>
-                        <a href="#contato" class="nav-link-custom">Contato</a>
+                        <a href="#sobre" class="nav-link-custom">Sobre</a>
+                        <a href="#faleconosco" class="nav-link-custom">Fale Conosco</a>
+                        <a href="#privacidade" class="nav-link-custom">Privacidade</a>
+                        <a href="#trocas" class="nav-link-custom">Trocas</a>
                     </nav>
                 </div>
                 <div class="col-md-3 text-end">
@@ -515,11 +623,11 @@
                         em Inajá - PR, com profissionais experientes e estrutura completa para consultas.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#especialidades" class="hero-btn">
-                            <i class="fas fa-stethoscope me-2"></i> Nossas Especialidades
+                        <a href="#faleconosco" class="hero-btn">
+                            <i class="fas fa-comment-dots me-2"></i> Fale Conosco
                         </a>
-                        <a href="#contato" class="btn btn-outline-light rounded-pill px-4 py-2" style="border-width: 2px;">
-                            <i class="fas fa-phone me-2"></i> Entre em Contato
+                        <a href="#sobre" class="btn btn-outline-light rounded-pill px-4 py-2" style="border-width: 2px;">
+                            <i class="fas fa-info-circle me-2"></i> Sobre Nós
                         </a>
                     </div>
                 </div>
@@ -533,51 +641,15 @@
         </div>
     </section>
 
-    <!-- ===== DIFERENCIAIS ===== -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-md-3 col-6">
-                    <div style="background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.05);">
-                        <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--primary);"></i>
-                        <h6 class="fw-bold mt-2">10 Anos de História</h6>
-                        <p class="text-muted small mb-0">Desde 2016 cuidando da sua saúde</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div style="background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.05);">
-                        <i class="fas fa-user-md" style="font-size: 2.5rem; color: var(--primary);"></i>
-                        <h6 class="fw-bold mt-2">Profissionais Qualificados</h6>
-                        <p class="text-muted small mb-0">Equipe experiente e dedicada</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div style="background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.05);">
-                        <i class="fas fa-heartbeat" style="font-size: 2.5rem; color: var(--primary);"></i>
-                        <h6 class="fw-bold mt-2">Atendimento Humanizado</h6>
-                        <p class="text-muted small mb-0">Cuidado com acolhimento e respeito</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div style="background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 3px 15px rgba(0,0,0,0.05);">
-                        <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--primary);"></i>
-                        <h6 class="fw-bold mt-2">Ativa e Regular</h6>
-                        <p class="text-muted small mb-0">Situação cadastral ativa</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== SOBRE ===== -->
-    <section id="sobre" class="py-5" style="background: #fff;">
+    <!-- ===== SOBRE (NOVA PÁGINA) ===== -->
+    <section id="sobre" class="about-page-section section-padding">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div style="background: var(--accent); border-radius: 20px; padding: 40px; text-align: center;">
-                        <i class="fas fa-hospital" style="font-size: 6rem; color: var(--primary); opacity: 0.3;"></i>
-                        <p class="mt-3 text-muted">Clínica Médica Guilherme &amp; Guilherme LTDA</p>
-                        <div class="d-flex justify-content-center gap-4 mt-3">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-hospital" style="font-size: 5rem; color: var(--primary); opacity: 0.5;"></i>
+                        <p class="mt-3 text-muted"><strong>Clínica Médica Guilherme &amp; Guilherme LTDA</strong></p>
+                        <div class="d-flex justify-content-center gap-4 mt-4">
                             <div>
                                 <div class="stat-number">10</div>
                                 <div class="stat-label">Anos de atuação</div>
@@ -622,240 +694,130 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Dados da Empresa -->
+            <div class="mt-5">
+                <h3 class="text-center mb-4" style="color: var(--primary);">Dados Cadastrais</h3>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="label"><i class="fas fa-id-card me-2"></i>CNPJ</div>
+                            <div class="value">25.132.258/0001-72</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label"><i class="fas fa-building me-2"></i>Razão Social</div>
+                            <div class="value">Clinica Medica Guilherme &amp; Guilherme LTDA</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label"><i class="fas fa-tag me-2"></i>Nome Fantasia</div>
+                            <div class="value">Clinica Guilherme</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <div class="label"><i class="fas fa-calendar-alt me-2"></i>Data de Abertura</div>
+                            <div class="value">04/07/2016 · 10 anos</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label"><i class="fas fa-balance-scale me-2"></i>Natureza Jurídica</div>
+                            <div class="value">Sociedade Empresária Limitada</div>
+                        </div>
+                        <div class="info-card" style="border-left-color: var(--success);">
+                            <div class="label"><i class="fas fa-check-circle me-2"></i>Situação Cadastral</div>
+                            <div class="value"><span style="color: var(--success); font-weight: 700;">Ativa</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ===== ESPECIALIDADES ===== -->
-    <section id="especialidades" class="py-5" style="background: var(--light);">
+    <!-- ===== FALE CONOSCO (NOVA PÁGINA) ===== -->
+    <section id="faleconosco" class="contact-form-section section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title-center d-inline-block">Especialidades</h2>
-                <p class="section-subtitle">Atendimento completo para sua saúde</p>
+                <h2 class="section-title-center d-inline-block">Fale Conosco</h2>
+                <p class="section-subtitle">Estamos aqui para atender você</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="specialty-card">
-                        <div class="specialty-icon">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <h5>Clínica Médica</h5>
-                        <p class="text-muted small">Atendimento geral para diagnóstico e tratamento de diversas condições de saúde.</p>
-                        <span class="badge" style="background: var(--gold); color: #fff;">Principal</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="specialty-card">
-                        <div class="specialty-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <h5>Exames Complementares</h5>
-                        <p class="text-muted small">Estrutura para realização de exames laboratoriais e de imagem.</p>
-                        <span class="badge" style="background: var(--secondary); color: #fff;">Secundária</span>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="specialty-card">
-                        <div class="specialty-icon">
-                            <i class="fas fa-ambulance"></i>
-                        </div>
-                        <h5>Pronto Atendimento</h5>
-                        <p class="text-muted small">Atendimento rápido para casos de urgência e emergência.</p>
-                        <span class="badge" style="background: var(--secondary); color: #fff;">Secundária</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== CNAES ===== -->
-            <div class="mt-5" style="background: #fff; border-radius: 15px; padding: 25px; box-shadow: 0 3px 15px rgba(0,0,0,0.05);">
-                <h5 class="fw-bold" style="color: var(--primary);"><i class="fas fa-briefcase-medical me-2"></i>Atividades - CNAEs</h5>
-                <ul class="cnae-list">
-                    <li>
-                        <i class="fas fa-star" style="color: var(--gold);"></i>
-                        <span><strong>Principal:</strong> 86.30-5-03 - Atividade médica ambulatorial restrita a consultas</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle" style="color: var(--secondary); font-size: 0.5rem;"></i>
-                        <span>86.30-5-02 - Atividade médica ambulatorial com recursos para realização de exames complementares</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle" style="color: var(--secondary); font-size: 0.5rem;"></i>
-                        <span>86.10-1-01 - Atividades de atendimento hospitalar, exceto pronto-socorro</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-circle" style="color: var(--secondary); font-size: 0.5rem;"></i>
-                        <span>86.10-1-02 - Atividades de atendimento em pronto-socorro e urgências</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== EQUIPE ===== -->
-    <section id="equipe" class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title-center d-inline-block">Corpo Clínico</h2>
-                <p class="section-subtitle">Profissionais dedicados à sua saúde</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-5">
-                    <div class="doctor-card">
-                        <div class="doctor-avatar">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h5 class="doctor-name">Dr. Luiz Gustavo Guilherme</h5>
-                        <p class="text-muted small">Sócio-Administrador</p>
-                        <span class="badge" style="background: var(--primary); color: #fff;">Responsável Técnico</span>
-                    </div>
-                </div>
-
-                <div class="col-md-5">
-                    <div class="doctor-card">
-                        <div class="doctor-avatar">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h5 class="doctor-name">Dr. Osni Lima Guilherme</h5>
-                        <p class="text-muted small">Sócio</p>
-                        <span class="badge" style="background: var(--secondary); color: #fff;">Fundador</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-4">
-                <div class="info-card d-inline-block text-start" style="border-left-color: var(--gold);">
-                    <div class="label">Qualificação do Responsável</div>
-                    <div class="value"><strong>Sócio-Administrador</strong></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== DADOS DA EMPRESA ===== -->
-    <section class="py-5" style="background: var(--accent);">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title-center d-inline-block">Dados da Empresa</h2>
-                <p class="section-subtitle">Informações cadastrais da Clínica Guilherme</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-id-card me-2"></i>CNPJ</div>
-                        <div class="value">25.132.258/0001-72</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-building me-2"></i>Razão Social</div>
-                        <div class="value">Clinica Medica Guilherme &amp; Guilherme LTDA</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-tag me-2"></i>Nome Fantasia</div>
-                        <div class="value">Clinica Guilherme</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-calendar-alt me-2"></i>Data de Abertura</div>
-                        <div class="value">04/07/2016 · 10 anos</div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-balance-scale me-2"></i>Natureza Jurídica</div>
-                        <div class="value">Sociedade Empresária Limitada</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-money-bill-wave me-2"></i>Capital Social</div>
-                        <div class="value">R$ 3.000,00</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="label"><i class="fas fa-store me-2"></i>Tipo</div>
-                        <div class="value">Matriz</div>
-                    </div>
-                    <div class="info-card" style="border-left-color: var(--success);">
-                        <div class="label"><i class="fas fa-check-circle me-2"></i>Situação Cadastral</div>
-                        <div class="value"><span style="color: var(--success); font-weight: 700;">Ativa</span> · desde 04/07/2016</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTATO E LOCALIZAÇÃO ===== -->
-    <section id="contato" class="py-5">
-        <div class="container">
-            <div class="row g-4">
+            <div class="row g-5">
                 <div class="col-lg-6">
-                    <h2 class="section-title">Contato e Localização</h2>
-                    <p class="section-subtitle mb-4">Estamos prontos para atender você</p>
-
-                    <div class="info-card" style="border-left-color: var(--secondary);">
-                        <div class="label"><i class="fas fa-phone-alt me-2"></i>Telefones</div>
-                        <div class="value">
-                            <a href="tel:4433321212" style="color: var(--primary); text-decoration: none;">(44) 3332-1212</a>
-                            <span class="mx-2">|</span>
-                            <a href="tel:4433321380" style="color: var(--primary); text-decoration: none;">(44) 3332-1380</a>
+                    <form>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label fw-bold">Nome Completo</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome completo" required>
                         </div>
-                    </div>
-
-                    <div class="info-card" style="border-left-color: var(--secondary);">
-                        <div class="label"><i class="fas fa-envelope me-2"></i>E-mail</div>
-                        <div class="value">
-                            <a href="mailto:escritoriodojuarez@uol.com.br" style="color: var(--primary); text-decoration: none;">
-                                escritoriodojuarez@uol.com.br
-                            </a>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
                         </div>
-                    </div>
-
-                    <div class="info-card" style="border-left-color: var(--secondary);">
-                        <div class="label"><i class="fas fa-map-marker-alt me-2"></i>Endereço</div>
-                        <div class="value">
-                            <strong>Avenida Antonio Veiga Martins, 41</strong><br>
-                            Centro · Inajá - PR · CEP: 87670-000
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label fw-bold">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" placeholder="(44) 99999-9999">
                         </div>
-                    </div>
-
-                    <div class="info-card" style="border-left-color: var(--secondary); background: var(--accent);">
-                        <div class="label"><i class="fas fa-mail-bulk me-2"></i>Para Correspondência</div>
-                        <div class="value small">
-                            Clinica Guilherme<br>
-                            Avenida Antonio Veiga Martins 41<br>
-                            Centro · Inajá PR · 87670-000
+                        <div class="mb-3">
+                            <label for="assunto" class="form-label fw-bold">Assunto</label>
+                            <select class="form-select" id="assunto">
+                                <option value="">Selecione...</option>
+                                <option>Agendamento de Consulta</option>
+                                <option>Dúvidas sobre Atendimento</option>
+                                <option>Reclamação</option>
+                                <option>Sugestão</option>
+                                <option>Outros</option>
+                            </select>
                         </div>
-                    </div>
-
-                    <a href="#" class="btn rounded-pill px-4 mt-2" style="background: var(--primary); color: #fff;">
-                        <i class="fas fa-map me-2"></i> Ver no Google Maps
-                    </a>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label fw-bold">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" rows="5" placeholder="Digite sua mensagem aqui..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane me-2"></i> Enviar Mensagem
+                        </button>
+                    </form>
                 </div>
 
                 <div class="col-lg-6">
-                    <div style="background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                        <h5 class="fw-bold" style="color: var(--primary);"><i class="fas fa-clock me-2"></i>Horário de Atendimento</h5>
-                        <ul class="list-unstyled mt-3">
-                            <li class="d-flex justify-content-between py-2 border-bottom">
-                                <span>Segunda a Sexta</span>
-                                <span class="fw-bold">08:00 - 18:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-2 border-bottom">
-                                <span>Sábado</span>
-                                <span class="fw-bold">08:00 - 12:00</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-2">
-                                <span>Domingo</span>
-                                <span class="fw-bold" style="color: var(--secondary);">Fechado</span>
-                            </li>
-                        </ul>
-                        <hr>
-                        <p class="text-muted small">
-                            <i class="fas fa-info-circle me-1" style="color: var(--primary);"></i>
-                            Atendimento com agendamento prévio. Ligue e marque sua consulta!
-                        </p>
-                        <a href="#" class="btn w-100 rounded-pill py-2" style="background: var(--secondary); color: #fff; font-weight: 600;">
-                            <i class="fas fa-calendar-check me-2"></i> Agendar Consulta
+                    <h5 class="fw-bold mb-4" style="color: var(--primary);">Informações de Contato</h5>
+                    
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Telefones</h6>
+                            <p class="mb-0 text-muted">(44) 3332-1212</p>
+                            <p class="mb-0 text-muted">(44) 3332-1380</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">E-mail</h6>
+                            <p class="mb-0 text-muted">escritoriodojuarez@uol.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Endereço</h6>
+                            <p class="mb-0 text-muted">Avenida Antonio Veiga Martins, 41</p>
+                            <p class="mb-0 text-muted">Centro · Inajá - PR · 87670-000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Horário de Atendimento</h6>
+                            <p class="mb-0 text-muted">Segunda a Sexta: 08:00 - 18:00</p>
+                            <p class="mb-0 text-muted">Sábado: 08:00 - 12:00</p>
+                            <p class="mb-0 text-muted" style="color: var(--secondary);">Domingo: Fechado</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="#" class="btn rounded-pill px-4" style="background: var(--secondary); color: #fff;">
+                            <i class="fab fa-whatsapp me-2"></i> WhatsApp
                         </a>
                     </div>
                 </div>
@@ -863,87 +825,86 @@
         </div>
     </section>
 
-    <!-- ===== NEWSLETTER ===== -->
-    <section class="newsletter-section">
+    <!-- ===== POLÍTICA DE PRIVACIDADE (NOVA PÁGINA) ===== -->
+    <section id="privacidade" class="privacy-section section-padding">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="fw-bold">Receba Nossas Novidades</h3>
-                    <p class="opacity-75">Cadastre-se para receber dicas de saúde e promoções</p>
-                </div>
-                <div class="col-lg-6">
-                    <form class="d-flex gap-2">
-                        <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
-                        <button type="submit" class="btn-subscribe">
-                            <i class="fas fa-paper-plane me-2"></i> Inscrever
-                        </button>
-                    </form>
-                </div>
+            <div class="text-center mb-5">
+                <h2 class="section-title-center d-inline-block">Política de Privacidade</h2>
+                <p class="section-subtitle">Como protegemos suas informações</p>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer-main">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5><i class="fas fa-heartbeat me-2"></i>Clínica Guilherme</h5>
-                    <p class="small">
-                        Cuidado e excelência em saúde há mais de 10 anos em Inajá - PR.
-                    </p>
-                    <div class="mt-3">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="info-card" style="border-left-color: var(--primary);">
+                        <div class="label">Última atualização</div>
+                        <div class="value">20 de Julho de 2026</div>
                     </div>
-                </div>
 
-                <div class="col-lg-2">
-                    <h5>Institucional</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#equipe">Nossa Equipe</a></li>
-                        <li><a href="#">Canal de Denúncias</a></li>
-                        <li><a href="#">Código de Ética</a></li>
+                    <div class="info-card" style="border-left-color: var(--secondary);">
+                        <p class="text-muted">
+                            A <strong>Clínica Guilherme</strong> valoriza sua privacidade e está comprometida em 
+                            proteger seus dados pessoais. Esta política descreve como coletamos, usamos e 
+                            protegemos suas informações.
+                        </p>
+                    </div>
+
+                    <h5 class="fw-bold mt-4" style="color: var(--primary);"><i class="fas fa-database me-2"></i>Coleta de Informações</h5>
+                    <ul class="privacy-list">
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-user"></i></span>
+                            <span><strong>Dados Pessoais:</strong> Nome, e-mail, telefone e CPF quando necessário para agendamentos.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-notes-medical"></i></span>
+                            <span><strong>Informações de Saúde:</strong> Histórico médico e informações fornecidas durante consultas.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-desktop"></i></span>
+                            <span><strong>Dados de Navegação:</strong> Cookies e informações de uso do site.</span>
+                        </li>
                     </ul>
-                </div>
 
-                <div class="col-lg-3">
-                    <h5>Links Úteis</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="#contato">Fale Conosco</a></li>
-                        <li><a href="#">Trocas e Devoluções</a></li>
-                        <li><a href="#">Aviso de Privacidade</a></li>
-                        <li><a href="#">Trabalhe Conosco</a></li>
+                    <h5 class="fw-bold mt-4" style="color: var(--primary);"><i class="fas fa-shield-alt me-2"></i>Uso das Informações</h5>
+                    <ul class="privacy-list">
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Agendamento:</strong> Para marcar e gerenciar suas consultas.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Atendimento:</strong> Para prestar serviços médicos de qualidade.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Comunicação:</strong> Para enviar lembretes, confirmações e informações relevantes.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Melhorias:</strong> Para aprimorar nossos serviços e atendimento.</span>
+                        </li>
                     </ul>
-                </div>
 
-                <div class="col-lg-3">
-                    <h5>Contato</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="tel:4433321212"><i class="fas fa-phone me-1"></i> (44) 3332-1212</a></li>
-                        <li><a href="mailto:escritoriodojuarez@uol.com.br"><i class="fas fa-envelope me-1"></i> escritoriodojuarez@uol.com.br</a></li>
-                        <li><i class="fas fa-map-pin me-1"></i> Av. Antonio Veiga Martins, 41</li>
-                        <li class="mt-2"><i class="fas fa-city me-1"></i> Inajá - PR</li>
+                    <h5 class="fw-bold mt-4" style="color: var(--primary);"><i class="fas fa-lock me-2"></i>Proteção de Dados</h5>
+                    <ul class="privacy-list">
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Segurança:</strong> Utilizamos medidas técnicas e organizacionais para proteger seus dados.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Confidencialidade:</strong> Seus dados são tratados com sigilo absoluto.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Compartilhamento:</strong> Não compartilhamos seus dados com terceiros sem seu consentimento.</span>
+                        </li>
                     </ul>
-                </div>
-            </div>
 
-            <div class="footer-bottom text-center">
-                <p class="mb-0">
-                    &copy; 2026 Clínica Guilherme - Todos os direitos reservados. 
-                    <span class="opacity-50">| CNPJ: 25.132.258/0001-72</span>
-                </p>
-                <p class="mb-0 small opacity-50">
-                    <i class="fas fa-stethoscope me-1"></i> CNAE Principal: 86.30-5-03 - Atividade médica ambulatorial restrita a consultas
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+                    <h5 class="fw-bold mt-4" style="color: var(--primary);"><i class="fas fa-user-check me-2"></i>Seus Direitos</h5>
+                    <ul class="privacy-list">
+                        <li>
+                            <span class="privacy-icon"><i class="fas fa-check-circle"></i></span>
+                            <span>Acessar, corrigir ou excluir seus dados pessoais.</span>
+                        </li>
+                        <li>
+                            <span class="privacy-icon"><i class="
