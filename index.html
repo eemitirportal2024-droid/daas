@@ -1,527 +1,759 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clínica Guilherme · Inajá PR</title>
-  <!-- Font Awesome para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecidos & Cia - Sua loja de tecidos</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de cores */
+        :root {
+            --primary: #6B2D5B;
+            --primary-dark: #4A1F3F;
+            --primary-light: #9B4D8A;
+            --secondary: #D4A574;
+            --secondary-light: #E8C9A0;
+            --dark: #2C1810;
+            --light: #FAF6F0;
+            --success: #5A8F6A;
+            --text-color: #3D2C25;
+        }
 
-    body {
-      background: #f4f7fa;
-      color: #1e2a3a;
-    }
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
 
-    /* HEADER */
-    .top-bar {
-      background: #0b3b2c;
-      color: #fff;
-      padding: 8px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      flex-wrap: wrap;
-    }
-    .top-bar a {
-      color: #b8d9c9;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-    .top-bar a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .top-bar .contact i {
-      margin-right: 4px;
-    }
+        body {
+            background-color: var(--light);
+            color: var(--text-color);
+        }
 
-    .main-header {
-      background: #ffffff;
-      padding: 16px 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e0e8ef;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-    .logo h1 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: #0b3b2c;
-      letter-spacing: -0.5px;
-    }
-    .logo span {
-      color: #4a7b5a;
-      font-weight: 300;
-    }
-    .logo small {
-      display: block;
-      font-size: 0.8rem;
-      color: #4a6b5a;
-      margin-top: 2px;
-    }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-weight: 500;
-    }
-    .nav-links a {
-      color: #1f3d33;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.2s;
-    }
-    .nav-links a:hover {
-      color: #0f6b4a;
-      border-bottom: 2px solid #0f6b4a;
-      padding-bottom: 4px;
-    }
+        /* Barra Superior */
+        .top-bar {
+            background: var(--primary-dark);
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 6px 0;
+        }
 
-    /* hero / banner */
-    .hero {
-      background: linear-gradient(145deg, #e4f0ea, #cfe1d7);
-      padding: 28px 30px 20px 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #bcd0c4;
-    }
-    .hero h2 {
-      font-size: 1.8rem;
-      color: #12382c;
-      font-weight: 400;
-    }
-    .hero h2 strong {
-      font-weight: 700;
-      color: #0a2b21;
-    }
-    .hero .badge {
-      background: #0b3b2c;
-      color: white;
-      padding: 6px 18px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.3px;
-    }
+        .top-bar a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-    /* container principal */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
+        .top-bar a:hover {
+            color: #fff;
+        }
 
-    .grid-2col {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 28px;
-    }
+        /* Header */
+        .header-main {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 15px 0;
+        }
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 22px 26px;
-      box-shadow: 0 6px 18px rgba(0, 20, 10, 0.06);
-      border: 1px solid #eaeef3;
-      margin-bottom: 28px;
-    }
-    .card h3 {
-      font-size: 1.4rem;
-      color: #0f3d2e;
-      border-bottom: 2px solid #dbe8e0;
-      padding-bottom: 12px;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card h3 i {
-      color: #1d7a55;
-      font-size: 1.5rem;
-    }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-    .info-row {
-      display: flex;
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f4f8;
-      font-size: 0.95rem;
-    }
-    .info-row .label {
-      font-weight: 600;
-      width: 160px;
-      flex-shrink: 0;
-      color: #1d3d30;
-    }
-    .info-row .value {
-      color: #1f2e3f;
-    }
+        .logo-text span {
+            color: var(--secondary);
+        }
 
-    .tag {
-      background: #e7f3ed;
-      color: #0b4b33;
-      padding: 4px 14px;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-block;
-      margin: 2px 4px 2px 0;
-    }
+        .nav-link-custom {
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+            position: relative;
+        }
 
-    .contact-block {
-      background: #f6faf8;
-      padding: 14px 18px;
-      border-radius: 14px;
-      margin: 10px 0;
-    }
-    .contact-block i {
-      width: 28px;
-      color: #146b47;
-    }
-    .contact-block a {
-      color: #124f39;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact-block a:hover {
-      text-decoration: underline;
-    }
+        .nav-link-custom:hover {
+            color: var(--primary);
+        }
 
-    .map-link {
-      display: inline-block;
-      margin-top: 12px;
-      background: #1a704f;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.2s;
-    }
-    .map-link i {
-      margin-right: 8px;
-    }
-    .map-link:hover {
-      background: #0d523a;
-    }
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: 0.3s;
+        }
 
-    .cnae-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    .cnae-list li {
-      padding: 6px 0;
-      border-bottom: 1px solid #ecf2f0;
-      font-size: 0.95rem;
-    }
-    .cnae-list li i {
-      color: #1a704f;
-      margin-right: 10px;
-      width: 18px;
-    }
+        .nav-link-custom:hover::after {
+            width: 100%;
+        }
 
-    .socios {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 4px;
-    }
-    .socios .nome {
-      font-weight: 600;
-      color: #0e3d2c;
-    }
-    .socios .cargo {
-      color: #456b58;
-      font-size: 0.9rem;
-      margin-left: 8px;
-    }
+        /* Hero / Banner */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .sobre-text {
-      line-height: 1.6;
-      color: #1d2f3f;
-      background: #f8fbfa;
-      padding: 14px 18px;
-      border-radius: 14px;
-      border-left: 4px solid #237a58;
-    }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: rgba(212, 165, 116, 0.08);
+            transform: rotate(25deg);
+        }
 
-    /* footer */
-    .footer-links {
-      background: #0b2a20;
-      color: #d4e4db;
-      padding: 30px 30px 20px;
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 30px;
-    }
-    .footer-links h4 {
-      color: #fff;
-      margin-bottom: 12px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-    .footer-links ul {
-      list-style: none;
-    }
-    .footer-links ul li {
-      margin-bottom: 8px;
-    }
-    .footer-links a {
-      color: #b6d2c4;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .footer-links a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .footer-copy {
-      background: #062017;
-      color: #a0bfb0;
-      text-align: center;
-      padding: 14px 10px;
-      font-size: 0.85rem;
-      border-top: 1px solid #1b4d39;
-    }
-    .footer-copy span {
-      color: #d6ece0;
-    }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
 
-    @media (max-width: 800px) {
-      .grid-2col {
-        grid-template-columns: 1fr;
-      }
-      .main-header {
-        flex-direction: column;
-        align-items: start;
-        gap: 12px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-      .hero {
-        flex-direction: column;
-        align-items: start;
-        gap: 10px;
-      }
-      .info-row {
-        flex-wrap: wrap;
-      }
-      .info-row .label {
-        width: 100%;
-        margin-bottom: 2px;
-      }
-    }
-  </style>
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-btn {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .hero-btn:hover {
+            background: var(--secondary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Seções */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin-top: 8px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            font-weight: 300;
+        }
+
+        /* Cards de Produtos */
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            height: 100%;
+            border: 1px solid #f0ebe5;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(107, 45, 91, 0.15);
+        }
+
+        .product-card .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            background: #f8f4ef;
+            padding: 20px;
+        }
+
+        .product-card .card-body {
+            padding: 20px;
+        }
+
+        .product-card .card-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .product-card .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-card .btn-buy {
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50px;
+            padding: 8px 25px;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .product-card .btn-buy:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        /* Diferenciais */
+        .differential-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--secondary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin: 0 auto 15px;
+            transition: 0.3s;
+        }
+
+        .differential-item:hover .differential-icon {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        /* Sobre */
+        .about-section {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        /* Depoimentos */
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0ebe5;
+            height: 100%;
+        }
+
+        .testimonial-card .quote-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            opacity: 0.5;
+        }
+
+        .testimonial-card .client-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .testimonial-card .client-role {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: #FFB800;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .newsletter-section .form-control {
+            border-radius: 50px;
+            padding: 12px 20px;
+            border: none;
+        }
+
+        .newsletter-section .btn-subscribe {
+            border-radius: 50px;
+            padding: 12px 35px;
+            background: var(--secondary);
+            color: var(--dark);
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .newsletter-section .btn-subscribe:hover {
+            background: var(--secondary-light);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer-main {
+            background: var(--dark);
+            color: rgba(255,255,255,0.8);
+            padding: 50px 0 20px;
+        }
+
+        .footer-main h5 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-main a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-main a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-main .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            transition: 0.3s;
+            margin-right: 8px;
+        }
+
+        .footer-main .social-icon:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- top bar -->
-  <div class="top-bar">
-    <div class="contact">
-      <i class="fas fa-phone-alt"></i> <a href="tel:4433321212">(44) 3332-1212</a>
-      <i class="fas fa-envelope" style="margin-left: 18px;"></i> <a href="mailto:escritoriodojuarez@uol.com.br">escritoriodojuarez@uol.com.br</a>
-    </div>
-    <div>
-      <a href="#"><i class="fas fa-user-md"></i> Área do Paciente</a>
-      <a href="#" style="margin-left: 16px;"><i class="fas fa-calendar-check"></i> Agendamento</a>
-    </div>
-  </div>
 
-  <!-- header -->
-  <header class="main-header">
-    <div class="logo">
-      <h1>Clínica <span>Guilherme</span></h1>
-      <small><i class="fas fa-map-pin"></i> Inajá · PR</small>
-    </div>
-    <div class="nav-links">
-      <a href="#">Institucional</a>
-      <a href="#">Especialidades</a>
-      <a href="#">Corpo Clínico</a>
-      <a href="#">Contato</a>
-      <a href="#"><i class="fas fa-user-circle"></i> Login</a>
-    </div>
-  </header>
-
-  <!-- hero -->
-  <div class="hero">
-    <div>
-      <h2><strong>Clínica Guilherme</strong> · 10 anos de cuidado</h2>
-      <p style="margin-top: 4px; color: #1d4c39;"><i class="fas fa-check-circle" style="color: #1a7a4e;"></i> Ativa desde 04/07/2016 · CNPJ: 25.132.258/0001-72</p>
-    </div>
-    <div class="badge"><i class="fas fa-stethoscope"></i> Atendimento ambulatorial</div>
-  </div>
-
-  <!-- container principal -->
-  <div class="container">
-    <div class="grid-2col">
-      <!-- coluna esquerda -->
-      <div>
-        <!-- sobre -->
-        <div class="card">
-          <h3><i class="fas fa-info-circle"></i> Sobre a Clínica</h3>
-          <div class="sobre-text">
-            <p><strong>Clínica Médica Guilherme &amp; Guilherme LTDA</strong> – atua há mais de 10 anos na cidade de Inajá, Paraná. Com foco em <strong>atividade médica ambulatorial restrita a consultas</strong>, a clínica oferece atendimento humanizado e estrutura para exames complementares.</p>
-            <p style="margin-top: 12px;"><i class="fas fa-check-circle" style="color: #0b6b45;"></i> Situação cadastral: <strong>Ativa</strong> (desde 04/07/2016)</p>
-          </div>
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-phone-alt me-2"></i> (11) 99999-9999
+                <i class="fas fa-envelope ms-3 me-2"></i> contato@tecidosecia.com.br
+            </div>
+            <div>
+                <a href="#" class="me-3"><i class="fas fa-user me-1"></i> Minha Conta</a>
+                <a href="#"><i class="fas fa-shopping-cart me-1"></i> Carrinho</a>
+            </div>
         </div>
-
-        <!-- registro -->
-        <div class="card">
-          <h3><i class="fas fa-id-card"></i> Registro e Dados</h3>
-          <div class="info-row"><span class="label">CNPJ</span><span class="value">25.132.258/0001-72</span></div>
-          <div class="info-row"><span class="label">Razão Social</span><span class="value">Clinica Medica Guilherme &amp; Guilherme LTDA</span></div>
-          <div class="info-row"><span class="label">Nome Fantasia</span><span class="value">Clinica Guilherme</span></div>
-          <div class="info-row"><span class="label">Data Abertura</span><span class="value">04/07/2016 · 10 anos e 16 dias</span></div>
-          <div class="info-row"><span class="label">Porte</span><span class="value">Sem Enquadramento</span></div>
-          <div class="info-row"><span class="label">Natureza Jurídica</span><span class="value">Sociedade Empresária Limitada</span></div>
-          <div class="info-row"><span class="label">Opção MEI / Simples</span><span class="value">Não / Não</span></div>
-          <div class="info-row"><span class="label">Capital Social</span><span class="value">R$ 3.000,00</span></div>
-          <div class="info-row"><span class="label">Tipo / Situação</span><span class="value">Matriz · <span style="color:#0f784a; font-weight:600;">Ativa</span> (desde 04/07/2016)</span></div>
-        </div>
-
-        <!-- contatos e localização -->
-        <div class="card">
-          <h3><i class="fas fa-address-card"></i> Contatos &amp; Localização</h3>
-          <div class="contact-block">
-            <i class="fas fa-envelope"></i> <a href="mailto:escritoriodojuarez@uol.com.br">escritoriodojuarez@uol.com.br</a>
-          </div>
-          <div class="contact-block">
-            <i class="fas fa-phone-alt"></i> <a href="tel:4433321212">(44) 3332-1212</a>  ·  <a href="tel:4433321380">(44) 3332-1380</a>
-          </div>
-          <div style="margin-top: 10px;">
-            <p><i class="fas fa-map-marker-alt" style="color:#146b47; width:28px;"></i> <strong>Avenida Antonio Veiga Martins, 41</strong> – Centro, Inajá – PR, 87670-000</p>
-            <p style="margin: 8px 0 0 28px; font-size:0.9rem; color: #2b5b47;">
-              <i class="fas fa-mail-bulk"></i> Para correspondência: <br>
-              Clinica Guilherme · Avenida Antonio Veiga Martins 41 · Centro · Inajá PR · 87670-000
-            </p>
-            <a href="#" class="map-link" target="_blank"><i class="fas fa-map"></i> Procurar no Google Maps</a>
-          </div>
-        </div>
-
-        <!-- atividades CNAE -->
-        <div class="card">
-          <h3><i class="fas fa-briefcase-medical"></i> Atividades (CNAEs)</h3>
-          <ul class="cnae-list">
-            <li><i class="fas fa-circle" style="font-size: 0.5rem; vertical-align: middle;"></i> <strong>Principal:</strong> 86.30-5-03 – Atividade médica ambulatorial restrita a consultas</li>
-            <li><i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle; color: #4f8b72;"></i> 86.30-5-02 – Atividade médica ambulatorial com recursos para exames complementares</li>
-            <li><i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle; color: #4f8b72;"></i> 86.10-1-01 – Atendimento hospitalar (exceto pronto-socorro)</li>
-            <li><i class="fas fa-circle" style="font-size: 0.4rem; vertical-align: middle; color: #4f8b72;"></i> 86.10-1-02 – Pronto-socorro e unidades para urgências</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- coluna direita -->
-      <div>
-        <!-- quadro de sócios -->
-        <div class="card">
-          <h3><i class="fas fa-users"></i> Sócios &amp; Adm.</h3>
-          <div class="socios">
-            <div><span class="nome">Luiz Gustavo Guilherme</span> <span class="cargo">– Sócio-Administrador</span></div>
-            <div><span class="nome">Osni Lima Guilherme</span> <span class="cargo">– Sócio</span></div>
-          </div>
-          <div style="margin-top: 18px; background: #e6f2ec; padding: 10px 14px; border-radius: 12px; font-size:0.9rem;">
-            <i class="fas fa-badge-check" style="color: #146b47;"></i> Qualificação do responsável: <strong>Sócio-Administrador</strong>
-          </div>
-        </div>
-
-        <!-- institucional / links úteis (estilo hortifruti) -->
-        <div class="card">
-          <h3><i class="fas fa-sitemap"></i> Institucional</h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Sobre nós</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Canal de Denúncias</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Código de Ética</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Leve Natural</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Nossas Lojas</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Trabalhe Conosco</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-chevron-right" style="font-size:0.6rem; color:#1d7a55;"></i> Governança Corporativa</a></li>
-          </ul>
-        </div>
-
-        <!-- links úteis 2 -->
-        <div class="card">
-          <h3><i class="fas fa-link"></i> Links Úteis</h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-comment-dots" style="width:22px; color:#1d7a55;"></i> Fale conosco</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-shopping-bag" style="width:22px; color:#1d7a55;"></i> Como comprar</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-exchange-alt" style="width:22px; color:#1d7a55;"></i> Trocas e Devoluções</a></li>
-            <li><a href="#" style="color: #124f39; text-decoration: none;"><i class="fas fa-shield-alt" style="width:22px; color:#1d7a55;"></i> Aviso de Privacidade</a></li>
-          </ul>
-        </div>
-
-        <!-- acesso -->
-        <div class="card" style="background: #edf5f1;">
-          <h3><i class="fas fa-user-lock"></i> Acesso</h3>
-          <ul style="list-style: none;">
-            <li><a href="#" style="color: #0b3b2c; text-decoration: none; display:block; padding: 6px 0;"><i class="fas fa-sign-in-alt" style="width:24px;"></i> Login</a></li>
-            <li><a href="#" style="color: #0b3b2c; text-decoration: none; display:block; padding: 6px 0;"><i class="fas fa-user-plus" style="width:24px;"></i> Criar Conta</a></li>
-            <li><a href="#" style="color: #0b3b2c; text-decoration: none; display:block; padding: 6px 0;"><i class="fas fa-key" style="width:24px;"></i> Esqueci Minha Senha</a></li>
-            <li><a href="#" style="color: #0b3b2c; text-decoration: none; display:block; padding: 6px 0;"><i class="fas fa-box" style="width:24px;"></i> Meus Pedidos</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- footer -->
-  <footer>
-    <div class="footer-links">
-      <div>
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="#">Sobre nós</a></li>
-          <li><a href="#">Canal de Denúncias</a></li>
-          <li><a href="#">Código de Ética</a></li>
-          <li><a href="#">Leve Natural</a></li>
-          <li><a href="#">Nossas Lojas</a></li>
-          <li><a href="#">Trabalhe Conosco</a></li>
-          <li><a href="#">Governança Corporativa</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Links Úteis</h4>
-        <ul>
-          <li><a href="#">Fale conosco</a></li>
-          <li><a href="#">Como comprar</a></li>
-          <li><a href="#">Trocas e Devoluções</a></li>
-          <li><a href="#">Aviso de Privacidade</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Acesso</h4>
-        <ul>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Criar Conta</a></li>
-          <li><a href="#">Esqueci Minha Senha</a></li>
-          <li><a href="#">Meus Pedidos</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contato</h4>
-        <ul>
-          <li><a href="tel:4433321212"><i class="fas fa-phone"></i> (44) 3332-1212</a></li>
-          <li><a href="mailto:escritoriodojuarez@uol.com.br"><i class="fas fa-envelope"></i> escritoriodojuarez@uol.com.br</a></li>
-          <li><a href="#"><i class="fas fa-map-pin"></i> Inajá · PR</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-copy">
-      <span>Clínica Guilherme</span> · CNPJ 25.132.258/0001-72 · © 2026 · Todos os direitos reservados.
-    </div>
-  </footer>
+    <!-- Header Principal -->
+    <header class="header-main">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo-text">
+                        <i class="fas fa-tshirt me-2" style="color: var(--secondary);"></i>
+                        Tecidos<span>&</span>Cia
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <nav class="d-flex justify-content-center gap-4">
+                        <a href="#home" class="nav-link-custom">Início</a>
+                        <a href="#produtos" class="nav-link-custom">Produtos</a>
+                        <a href="#sobre" class="nav-link-custom">Sobre</a>
+                        <a href="#depoimentos" class="nav-link-custom">Depoimentos</a>
+                        <a href="#contato" class="nav-link-custom">Contato</a>
+                    </nav>
+                </div>
+                <div class="col-md-3 text-end">
+                    <a href="#" class="btn btn-outline-primary rounded-pill px-4" style="border-color: var(--primary); color: var(--primary);">
+                        <i class="fas fa-search me-1"></i> Buscar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Tecidos de Qualidade<br>Para Seus Projetos</h1>
+                    <p class="hero-subtitle my-4">
+                        Encontre a maior variedade de tecidos para moda, decoração e artesanato. 
+                        Qualidade e preço justo em um só lugar.
+                    </p>
+                    <a href="#produtos" class="hero-btn">
+                        <i class="fas fa-shopping-bag me-2"></i> Explorar Produtos
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center d-none d-lg-block">
+                    <i class="fas fa-tshirt" style="font-size: 10rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 mb-4 differential-item">
+                    <div class="differential-icon mx-auto">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h5 class="fw-bold">Entrega Rápida</h5>
+                    <p class="text-muted small">Entregamos em toda região com agilidade e segurança</p>
+                </div>
+                <div class="col-md-3 mb-4 differential-item">
+                    <div class="differential-icon mx-auto">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h5 class="fw-bold">Qualidade Garantida</h5>
+                    <p class="text-muted small">Tecidos selecionados com os melhores padrões</p>
+                </div>
+                <div class="col-md-3 mb-4 differential-item">
+                    <div class="differential-icon mx-auto">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h5 class="fw-bold">Preço Justo</h5>
+                    <p class="text-muted small">O melhor custo-benefício do mercado</p>
+                </div>
+                <div class="col-md-3 mb-4 differential-item">
+                    <div class="differential-icon mx-auto">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h5 class="fw-bold">Atendimento 5 Estrelas</h5>
+                    <p class="text-muted small">Equipe especializada para te ajudar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos em Destaque -->
+    <section id="produtos" class="py-5" style="background: #f8f4ef;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">Produtos em Destaque</h2>
+                <p class="section-subtitle">Os tecidos mais procurados da nossa coleção</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Produto 1 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23d4a574'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='14' fill='white' font-family='Arial'%3ETecido%3C/text%3E%3C/svg%3E" class="card-img-top" alt="Tecido Algodão">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Algodão Premium</h5>
+                            <p class="text-muted small">Alta qualidade, 100% algodão</p>
+                            <div class="price">R$ 29,90/m</div>
+                            <a href="#" class="btn btn-buy mt-3"><i class="fas fa-cart-plus me-2"></i>Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%236b2d5b'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='14' fill='white' font-family='Arial'%3ESeda%3C/text%3E%3C/svg%3E" class="card-img-top" alt="Tecido Seda">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Seda Natural</h5>
+                            <p class="text-muted small">Toque suave e brilho único</p>
+                            <div class="price">R$ 59,90/m</div>
+                            <a href="#" class="btn btn-buy mt-3"><i class="fas fa-cart-plus me-2"></i>Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%235a8f6a'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='14' fill='white' font-family='Arial'%3ELinho%3C/text%3E%3C/svg%3E" class="card-img-top" alt="Tecido Linho">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Linho Puro</h5>
+                            <p class="text-muted small">Natural, fresco e durável</p>
+                            <div class="price">R$ 49,90/m</div>
+                            <a href="#" class="btn btn-buy mt-3"><i class="fas fa-cart-plus me-2"></i>Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-card">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23d4a574'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='14' fill='white' font-family='Arial'%3EJeans%3C/text%3E%3C/svg%3E" class="card-img-top" alt="Tecido Jeans">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jeans Premium</h5>
+                            <p class="text-muted small">Resistente e estiloso</p>
+                            <div class="price">R$ 39,90/m</div>
+                            <a href="#" class="btn btn-buy mt-3"><i class="fas fa-cart-plus me-2"></i>Comprar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary rounded-pill px-5 py-2" style="border-color: var(--primary); color: var(--primary);">
+                    Ver Todos os Produtos <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%23f8f4ef'/%3E%3Ctext x='300' y='200' text-anchor='middle' font-size='24' fill='%236b2d5b' font-family='Arial'%3ENossa Loja%3C/text%3E%3C/svg%3E" alt="Nossa loja" class="about-image img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre a Tecidos & Cia</h2>
+                    <p class="section-subtitle mb-4">Há mais de 15 anos vestindo sonhos</p>
+                    <p class="text-muted">
+                        A <strong>Tecidos & Cia</strong> é uma empresa familiar que iniciou suas atividades em 2008, 
+                        com o propósito de oferecer tecidos de qualidade para todos os tipos de projetos.
+                    </p>
+                    <p class="text-muted">
+                        Trabalhamos com as melhores fornecedoras do Brasil e importamos tecidos exclusivos 
+                        para atender desde o cliente que faz artesanato até o estilista profissional.
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-users" style="font-size: 2rem; color: var(--secondary);"></i>
+                                <div class="ms-3">
+                                    <h5 class="mb-0 fw-bold">+500</h5>
+                                    <small class="text-muted">Clientes satisfeitos</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-tshirt" style="font-size: 2rem; color: var(--secondary);"></i>
+                                <div class="ms-3">
+                                    <h5 class="mb-0 fw-bold">+200</h5>
+                                    <small class="text-muted">Tipos de tecidos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary rounded-pill px-4 mt-3" style="background: var(--primary); border-color: var(--primary);">
+                        <i class="fas fa-store me-2"></i> Conheça Nossa História
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-5" style="background: #f8f4ef;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">O que Nossos Clientes Dizem</h2>
+                <p class="section-subtitle">Depoimentos de quem já comprou conosco</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-muted">
+                            "Comprei tecidos para minha coleção de moda e fiquei encantada com a qualidade. 
+                            Preços justos e atendimento excelente!"
+                        </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="mt-3">
+                            <div class="client-name">Ana Beatriz</div>
+                            <div class="client-role">Estilista</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-muted">
+                            "Sempre compro na Tecidos & Cia para meus trabalhos de artesanato. 
+                            A variedade é imensa e o atendimento é nota 10!"
+                        </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="mt-3">
+                            <div class="client-name">Maria Silva</div>
+                            <div class="client-role">Artesã</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-muted">
+                            "Como costureira profissional, preciso de tecidos de qualidade. 
+                            A Tecidos & Cia nunca me decepciona. Recomendo demais!"
+                        </p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="mt-3">
+                            <div class="client-name">Carla Souza</div>
+                            <div class="client-role">Costureira</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold">Receba Nossas Ofertas</h3>
+                    <p class="opacity-75">Cadastre-se e receba promoções exclusivas</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
+                        <button type="submit" class="btn-subscribe">
+                            <i class="fas fa-paper-plane me-2"></i> Inscrever
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato / Footer -->
+    <footer id="contato" class="footer-main">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5><i class="fas fa-tshirt me-2"></i>Tecidos&Cia</h5>
+                    <p class="small">
+                        Sua loja de tecidos completa. Qualidade e tradição há mais de 15 anos.
+                    </p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <h5>Institucional</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Nossa História</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5>Atendimento</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#"><i class="fas fa-phone me-1"></i> (11) 99999-9999</a></li>
+                        <li><a href="#"><i class="fas fa-envelope me-1"></i> contato@tecidosecia.com.br</a></li>
+                        <li><a href="#"><i class="fas fa-whatsapp me-1"></i> (11) 98888-8888</a></li>
+                        <li class="mt-2"><strong>Horário:</strong> Seg-Sex 8h-18h</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5>Endereço</h5>
+                    <ul class="list-unstyled small">
+                        <li><i class="fas fa-map-pin me-1"></i> Rua das Costureiras, 100</li>
+                        <li>Centro - São Paulo - SP</li>
+                        <li>CEP: 01234-567</li>
+                        <li class="mt-2">
+                            <a href="#" class="btn btn-sm" style="background: var(--secondary); color: var(--dark);">
+                                <i class="fas fa-map me-1"></i> Ver no Mapa
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center">
+                <p class="mb-0">
+                    &copy; 2026 Tecidos&Cia - Todos os direitos reservados. 
+                    <span class="opacity-50">| CNPJ: 12.345.678/0001-90</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
